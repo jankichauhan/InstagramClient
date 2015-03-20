@@ -26,4 +26,8 @@ dependencies {
     compile 'com.loopj.android:android-async-http:1.4.5'
     // Load remote images in image view
     compile 'com.squareup.picasso:picasso:2.5.0'
+    // For pull to refresh
+    compile 'com.android.support:support-v4:21.0.3'
+    compile 'com.makeramen:roundedimageview:2.0.0'
+
 }
