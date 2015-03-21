@@ -46,7 +46,7 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
 
         tvTotalComments.setText("view all " + photo.totalComments + " comments.");
 
-        String caption = " " + photo.caption + " <br> Photo by " + photo.username;
+        String caption = " <font color ='#517fa4'> <b> instagram: </b> </font> ' <font color = '#373332'>" + photo.caption + " ' Photo by @" + photo.username + " </font>";
         tvCaption.setText(Html.fromHtml(caption));
 
         String[] relativeTime = photo.relativeTime.split(" ");
@@ -54,7 +54,8 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
         tvRelativeTime.setText(time + "  ");
         tvLikes.setText(photo.totalLikes + " likes");
 
-        tvComment.setText(photo.lastCommentUser + ": " + photo.lastComment);
+        String comment = "<font color ='#517fa4'> <b>" + photo.lastCommentUser + "</b> </font> " + photo.lastComment;
+        tvComment.setText(Html.fromHtml(comment));
 
         ivProfilePhoto.setImageResource(0); // Clear the view
         if (photo.profilePhotoUrl != null) {
