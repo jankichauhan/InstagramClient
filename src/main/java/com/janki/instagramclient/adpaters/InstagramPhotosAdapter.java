@@ -16,6 +16,8 @@ import com.makeramen.roundedimageview.RoundedTransformationBuilder;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 /**
@@ -43,10 +45,11 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
         TextView tvRelativeTime = (TextView) convertView.findViewById(R.id.tvRelativeTime);
         TextView tvLikes = (TextView) convertView.findViewById(R.id.tvLikes);
         TextView tvComment = (TextView) convertView.findViewById(R.id.tvComment);
+        TextView tvUsername = (TextView) convertView.findViewById(R.id.tvUsername);
 
         tvTotalComments.setText("view all " + photo.totalComments + " comments.");
 
-        String caption = " <font color ='#517fa4'> <b> instagram: </b> </font> ' <font color = '#373332'>" + photo.caption + " ' Photo by @" + photo.username + " </font>";
+        String caption = " <font color ='#517fa4'> <b>"+ photo.username + " </b> </font>  <font color = '#373332'>" + photo.caption + " </font>";
         tvCaption.setText(Html.fromHtml(caption));
 
         String[] relativeTime = photo.relativeTime.split(" ");
@@ -56,6 +59,8 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
 
         String comment = "<font color ='#517fa4'> <b>" + photo.lastCommentUser + "</b> </font> " + photo.lastComment;
         tvComment.setText(Html.fromHtml(comment));
+
+        tvUsername.setText(Html.fromHtml(" <font color ='#517fa4'> <b>"+ photo.username + " </b> </font>"));
 
         ivProfilePhoto.setImageResource(0); // Clear the view
         if (photo.profilePhotoUrl != null) {
